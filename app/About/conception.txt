@@ -1,0 +1,65 @@
+Stock
+Customer создает заказ (order) на товары (products)
+Customer has cabinet
+User push button"Order is ready" the skus goes from (stock) main goes to sklad zakaz.
+Order get status pending
+
+Manager cabinet
+manager take order (button 'Take order') or the boss make the manager responsible for the order
+The order get status processing
+Manager  send order to mail opertor marking order Shipped.
+ Skus/продукты of the order go to the stock-manager(manager as stock).
+ As soon as order is payed skus goes from manager
+would be marked as done otherwise as  возврат или брак
+статусы заказа:
+pending,shiped,done,failed(returned),done (product softdeleted)
+
+--------------
+Продукт (SKU stock keeping unit)имеет атрибуты(цвет.вес.длина) атрибут имеет опции(красный, 2 кг,...)
+сопутствующие модели Unit(штуки литры),Discont
+-----------
+restrictions:
+order only for guests
+
+Diffirent  prefix & dir for guests and employies
+----------------
+monitor for general manage:
+state of orders,
+state of stocks
+________________
+????????????????????
+Managers/users and guests are different tables
+for security reasons
+----------------
+??????????
+Stock is a child of User/manager (see relations in the models
+
+we have  stock   case Main = 'main';
+                   case Order = 'order';
+                 ???  case Transport = 'transport';
+and each manager is a stock( after button send has been
+ pressed by manager one become responsible for the product)
+ So we have 2 basic stock plus number of stocks equal to nember
+  of sail managers
+  models Stock and User related as one to one
+  Stock Product ont to many
+
+----------------
+one start page for guest
+another for managers
+--------------
+enum OrderStatus: string
+{
+    case Paid= 'paid';// product mark as deleted  from stock main
+    case Pending = 'pending';//stock maim
+    case Processing = 'processing';//came to stock manager
+    case Shipped = 'shipped';//remains in the stock manager
+    case Canceled = 'canceled';//get back to the stock main
+}
+//
+Change approuch
+
+https://laraveldaily.com/post/laravel-e-shop-products-options-attributes-database-structure-example
+
+about SKU
+https://sendpulse.ua/ru/support/glossary/sku
