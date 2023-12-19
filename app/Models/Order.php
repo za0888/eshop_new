@@ -6,6 +6,7 @@ use App\enums\OrderStatus;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Order extends Model
@@ -18,8 +19,8 @@ class Order extends Model
     protected $casts=['status'=>OrderStatus::class];
 
 
-    public function skus():BelongsToMany
+    public function skus():HasMany
     {
-        return $this->belongsToMany(Sku::class)->withPivot('number_of_sku');
+        return $this->hasMany(Sku::class);
     }
 }

@@ -38,10 +38,10 @@ class Sku extends Model
             ->withPivot('value', 'unit');
     }
 
-    public function orders():BelongsToMany
+    public function order():BelongsTo
     {
-        return $this->belongsToMany(Order::class)
-            ->withPivot('number_of_sku');
+        return $this->belongsTo(Order::class);
+
     }
 
     public function product(): BelongsTo
