@@ -20,7 +20,8 @@ class Sku extends Model
         'barcode',
         'cost',
         'price',
-        'quantityInStock',
+        'quantity_in_stock',
+        'location_in_stock',
         'product_id',
         'stock_id',
         'unit_id',
@@ -38,10 +39,10 @@ class Sku extends Model
             ->withPivot('value', 'unit');
     }
 
-    public function order():BelongsTo
+    public function order():BelongsToMany
     {
-        return $this->belongsTo(Order::class);
-
+        return $this->belongsToMany(Order::class)
+            ->withPivot('number_of_sku');
     }
 
     public function product(): BelongsTo
