@@ -20,14 +20,13 @@ return new class extends Migration {
             $table->string('description')->nullable();
 
             $table->foreignIdFor(Category::class)
-                ->constrained();
+                ->constrained()
+                ->cascadeOnDelete()
+                ->cascadeOnUpdate();
 
             $table->timestamps();
             $table->softDeletes();
 
-//            products is stocked or in the stockk  or with the user/manager
-            /*$table->integer('stockable_id');
-            $table->string('stockable_type');*/
         });
     }
 

@@ -23,7 +23,7 @@ return new class extends Migration {
             $table->string('skucode');
             $table->string('barcode');
             $table->decimal('cost', 8, 3)
-                ->comment('the cost is price from supplier ');
+                ->comment('the cost is a price from supplier ');
 
             $table->decimal('price', 8, 3)
                 ->comment('price for customer');
@@ -38,9 +38,6 @@ return new class extends Migration {
 
             $table->foreignIdFor(Stock::class)
                 ->constrained();
-//
-//            $table->foreignIdFor(Package::class)
-//                ->nullable();
 
             $table->foreignIdFor(Unit::class)
                 ->nullable();
