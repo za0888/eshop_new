@@ -4,7 +4,7 @@ namespace App\enums;
 
 enum MailOperator: string
 {
-    case NovaPost = 'Nova Post';
-    case UkrPost = 'UkrPost';
-    case Dhl ='dhl';
+    case NovaPost = 'NOVA POST';
+    case UkrPost = 'UKRPOST';
+    case Dhl ='DHL';
 }
