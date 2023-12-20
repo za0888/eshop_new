@@ -10,7 +10,7 @@ enum UserStatus: string
     case Customer = 'customer';
     case Accountant = "accountant";
     case Boss = "boss";
-    case Stockkeeper = "stockkeeper";
+    case Stockkeeper = "stock keeper";
     case Secretary ='secretary';
 
 

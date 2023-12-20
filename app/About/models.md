@@ -1,3 +1,8 @@
+### Sku
+after been ordered/scaned Sku goes from the stock 'main' to the stock 'order'
+#### sku code  & product code
+https://www.lido.app/inventory/product-code-vs-sku
+
 ### Attribute
 #### name
 - colors

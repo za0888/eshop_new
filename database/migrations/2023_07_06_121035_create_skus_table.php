@@ -29,7 +29,7 @@ return new class extends Migration {
                 ->comment('price for customer');
 
 //
-            $table->integer('quantity_in_stock');
+//            $table->integer('quantity_in_stock');
             $table->string('location_in_stock');
 
 
@@ -44,12 +44,14 @@ return new class extends Migration {
 
             $table->foreignIdFor(Vendor::class);
 
+            $table->softDeletes();
+
 
             $table->timestamps();
         });
 
-        \Illuminate\Support\Facades\DB::statement('ALTER TABLE skus ADD COLUMN stockValue DECIMAL (12,2)
- GENERATED ALWAYS AS (price*quantity_in_stock) STORED;');
+//        \Illuminate\Support\Facades\DB::statement('ALTER TABLE skus ADD COLUMN stockValue DECIMAL (12,2)
+// GENERATED ALWAYS AS (price*quantity_in_stock) STORED;');
     }
 
     /**

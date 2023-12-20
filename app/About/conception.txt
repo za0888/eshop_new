@@ -1,8 +1,8 @@
 Stock
 Customer создает заказ (order) на товары (products)
 Customer has cabinet
-User push button"Order is ready" the skus goes from (stock) main goes to sklad zakaz.
-Order get status pending
+User push button"Order is ready" the skus goes from (stock) main goes to sklad 'order'.
+Order get status 'pending'
 
 Manager cabinet
 manager take order (button 'Take order') or the boss make the manager responsible for the order

@@ -14,7 +14,8 @@ The order get status _**processing**_
 Manager  send order to mail opertor marking _**order**_ as _**Shipped**_.
  
  As soon as order is **payed** 
-product would be marked as **_Archiv_** otherwise as  **_faulty_**
+product(sku) would be marked as **_Archiv_** otherwise as  **_faulty_**
+
 
 статусы заказа:
 pending,shiped,done,failed(returned),done (product is maked as **_Archiv_**)

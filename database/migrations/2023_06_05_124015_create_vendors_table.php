@@ -20,6 +20,8 @@ return new class extends Migration
             ->default('Ukraine');
             $table->string('email');
             $table->timestamps();
+            $table->softDeletes();
+
         });
     }
 
