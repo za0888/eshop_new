@@ -19,9 +19,10 @@ class AppServiceProvider extends ServiceProvider
     public function register(): void
     {
         Blade::if('noCustomer', function () {
-            $userStatus = auth()->user()->status->value;
+//            $userStatus = auth()->user()->status->value;
+            $userStatus = auth()->user()->status;
 
-            return $userStatus !== UserStatus::Customer->value;
+            return $userStatus !== UserStatus::Customer;
         });
     }
 

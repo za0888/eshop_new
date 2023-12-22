@@ -23,4 +23,9 @@ class Order extends Model
         return $this->belongsToMany(Sku::class)
             ->withPivot('number_in_order');
     }
+
+    public function users():BelongsToMany
+    {
+        return $this->belongsToMany(User::class);
+    }
 }
