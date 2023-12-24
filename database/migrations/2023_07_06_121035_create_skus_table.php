@@ -30,7 +30,8 @@ return new class extends Migration {
                 ->comment('price for customer');
 
 //
-//            $table->integer('quantity_in_stock');
+            $table->integer('quantity_in_stock');
+
             $table->string('location_in_stock');
 
 

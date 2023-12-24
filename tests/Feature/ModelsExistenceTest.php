@@ -117,7 +117,7 @@ it('check created Sku model existence & softDeleting', function () {
         'skucode'=>'nan-hfh-nn',
         'barcode'=>'111111111',
         'price'=>123.22,
-//        'quantity_in_stock'=>123,
+        'quantity_in_stock'=>123,
         'location_in_stock'=>'ff-123',
         'product_id'=>1,
         'stock_id'=>1,
