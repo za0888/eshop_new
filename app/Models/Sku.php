@@ -15,6 +15,7 @@ class Sku extends Model
     use SoftDeletes;
 
     protected $fillable = [
+        'name',
         'skuStatus',
         'skucode',
         'barcode',

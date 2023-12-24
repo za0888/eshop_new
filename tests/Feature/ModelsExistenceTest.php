@@ -1,11 +1,16 @@
 <?php
 
 use App\enums\OrderStatus;
+use App\enums\StockName;
 use App\Models\Category;
 use App\Models\Order;
 use App\Models\Product;
+use App\Models\Sku;
+use App\Models\Stock;
 use App\Models\Unit;
 use App\Models\Vendor;
+use App\Models\Attribute;
+
 use function Pest\Laravel\assertDatabaseHas;
 use function Pest\Laravel\assertSoftDeleted;
 
@@ -91,11 +96,55 @@ it('check created Product model existence & softDeleting', function () {
 
 });
 //stock
+it('check created Stock model existence & softDeleting', function () {
 
+    $stock = Stock::create();
+
+    $this->assertDatabaseHas('stocks', [
+        'name' => StockName::Main->value,
+    ]);
+    $stock->delete();
+    assertSoftDeleted($stock);
+
+});
 // sku
 
-//attribute
+it('check created Sku model existence & softDeleting', function () {
 
+    $sku = Sku::create([
+        'cost'=>123.12,
+        'name' => 'some sku',
+        'skucode'=>'nan-hfh-nn',
+        'barcode'=>'111111111',
+        'price'=>123.22,
+//        'quantity_in_stock'=>123,
+        'location_in_stock'=>'ff-123',
+        'product_id'=>1,
+        'stock_id'=>1,
+        'vendor_id'=>1
+    ]);
+
+    assertDatabaseHas('skus', [
+        'name' => 'some sku',
+    ]);
+    $sku->delete();
+    assertSoftDeleted($sku);
+
+});
+//attribute
+it('check created Attribute model existence & softDeleting', function () {
+
+    $attribute = Attribute::create([
+        'name' => 'some attribute',
+    ]);
+
+    assertDatabaseHas('attributes', [
+        'name' => 'some attribute',
+    ]);
+    $attribute->delete();
+    assertSoftDeleted($attribute);
+
+});
 //attribute_option
 
 //order_users
