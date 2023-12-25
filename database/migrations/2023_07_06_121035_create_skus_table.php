@@ -19,8 +19,8 @@ return new class extends Migration {
         Schema::create('skus', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('skuStatus')
-                ->default(SkuStatus::StockProcessing);
+//            $table->string('skuStatus')
+//                ->default(SkuStatus::StockProcessing);
             $table->string('skucode');
             $table->string('barcode');
             $table->decimal('cost', 8, 3)

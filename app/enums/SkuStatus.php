@@ -1,7 +1,8 @@
 <?php
 
 namespace App\enums;
-
+//!!!!!!!!!!!!!!!!!
+//Bad choice. This status is inappropriate because Sku model has attribute 'quantity_in_stock' so mess.
 enum SkuStatus: string
 {
     case StockProcessing='stock processing';
