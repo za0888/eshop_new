@@ -21,7 +21,8 @@ return new class extends Migration {
                 ->unique();
 //list of units available for the option
 //            to use in pivot table
-            $table->json('units');
+
+//            $table->json('units');
 
             $table->string('comment');
 
@@ -29,6 +30,9 @@ return new class extends Migration {
                 ->constrained()
                 ->cascadeOnDelete()
                 ->cascadeOnUpdate();
+
+            $table->foreignIdFor(Unit::class)
+                ->nullable();
 
             $table->softDeletes();
 

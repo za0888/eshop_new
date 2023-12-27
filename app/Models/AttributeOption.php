@@ -18,6 +18,7 @@ class AttributeOption extends Model
         'units',
         'comment',
         'attribute_id',
+        'unit_id'
     ];
 
     protected $casts = [
@@ -34,5 +35,11 @@ class AttributeOption extends Model
     {
         return $this->belongsToMany(Sku::class)
             ->withPivot('unit', 'value');
+    }
+
+    public function unit(): BelongsTo
+    {
+        return $this->belongsTo(Unit::class)
+            ->withDefault();
     }
 }

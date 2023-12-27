@@ -16,7 +16,6 @@ class Sku extends Model
 
     protected $fillable = [
         'name',
-        'skuStatus',
         'skucode',
         'barcode',
         'cost',
@@ -25,7 +24,7 @@ class Sku extends Model
         'location_in_stock',
         'product_id',
         'stock_id',
-        'unit_id',
+//        'unit_id',
         'vendor_id',
 
     ];
@@ -53,11 +52,11 @@ class Sku extends Model
     }
 
 //units:box,barrel,cartoon,
-    public function unit(): BelongsTo
+  /*  public function unit(): BelongsTo
     {
         return $this->belongsTo(Unit::class)
             ->withDefault();
-    }
+    }*/
 
     public function vendor(): BelongsTo
     {

@@ -32,6 +32,7 @@ return new class extends Migration {
 //
             $table->integer('quantity_in_stock');
 
+
             $table->string('location_in_stock');
 
 
@@ -41,8 +42,8 @@ return new class extends Migration {
             $table->foreignIdFor(Stock::class)
                 ->constrained();
 
-            $table->foreignIdFor(Unit::class)
-                ->nullable();
+//            $table->foreignIdFor(Unit::class)
+//                ->nullable();
 
             $table->foreignIdFor(Vendor::class);
 
