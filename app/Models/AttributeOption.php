@@ -15,7 +15,6 @@ class AttributeOption extends Model
 
     protected $fillable = [
         'name',
-        'units',
         'comment',
         'attribute_id',
         'unit_id'

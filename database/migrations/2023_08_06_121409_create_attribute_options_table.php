@@ -19,10 +19,6 @@ return new class extends Migration {
             $table->string('name')
                 ->nullable()
                 ->unique();
-//list of units available for the option
-//            to use in pivot table
-
-//            $table->json('units');
 
             $table->string('comment');
 

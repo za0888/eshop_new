@@ -2,6 +2,7 @@
 
 use App\enums\OrderStatus;
 use App\enums\StockName;
+use App\Models\AttributeOption;
 use App\Models\Category;
 use App\Models\Order;
 use App\Models\Product;
@@ -146,6 +147,23 @@ it('check created Attribute model existence & softDeleting', function () {
 
 });
 //attribute_option
+it('check created AttributeOption model existence & softDeleting', function () {
+
+    $attributeOption= AttributeOption::create([
+            'name'=>'zigmund',
+            'comment'=>'some comment',
+            'attribute_id'=>1,
+            'unit_id'=>1,
+        ]
+    );
+
+    assertDatabaseHas('attribute_options', [
+        'name' => 'zigmund',
+    ]);
+    $attributeOption->delete();
+    assertSoftDeleted($attributeOption);
+
+});
 
 //order_users
 
