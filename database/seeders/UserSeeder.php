@@ -16,12 +16,11 @@ class UserSeeder extends Seeder
     public function run(): void
     {
 //        create 3 users : admin manager customer
-        $userAdmin = User::factory()->admin()->create();
+        $userAdmin = User::factory()
+            ->create(['status'=>UserStatus::Administrator->value]);
 
         $userBoss = User::factory()
-            ->active()
-            ->boss()
-            ->create();
+                      ->create(['status'=>UserStatus::Boss->value]);
 
         $user=User::factory()
             ->count(9)

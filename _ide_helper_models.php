@@ -42,13 +42,12 @@ namespace App\Models{
  *
  * @property int $id
  * @property string|null $name
- * @property array $units
  * @property string $comment
  * @property int $attribute_id
  * @property \Illuminate\Support\Carbon|null $deleted_at
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
- * @property-read AttributeOption|null $attribute
+ * @property-read \App\Models\Attribute|null $attribute
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Sku> $skus
  * @property-read int|null $skus_count
  * @method static \Illuminate\Database\Eloquent\Builder|AttributeOption newModelQuery()
@@ -61,7 +60,6 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|AttributeOption whereDeletedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|AttributeOption whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|AttributeOption whereName($value)
- * @method static \Illuminate\Database\Eloquent\Builder|AttributeOption whereUnits($value)
  * @method static \Illuminate\Database\Eloquent\Builder|AttributeOption whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|AttributeOption withTrashed()
  * @method static \Illuminate\Database\Eloquent\Builder|AttributeOption withoutTrashed()
@@ -140,6 +138,7 @@ namespace App\Models{
  * @property-read \App\Models\Category|null $category
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Sku> $skus
  * @property-read int|null $skus_count
+ * @method static \Database\Factories\ProductFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|Product newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Product newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Product onlyTrashed()
@@ -172,7 +171,6 @@ namespace App\Models{
  * @property string $location_in_stock
  * @property int $product_id
  * @property int $stock_id
- * @property int|null $unit_id
  * @property int $vendor_id
  * @property \Illuminate\Support\Carbon|null $deleted_at
  * @property \Illuminate\Support\Carbon|null $created_at
@@ -183,7 +181,6 @@ namespace App\Models{
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Order> $order
  * @property-read int|null $order_count
  * @property-read \App\Models\Product|null $product
- * @property-read \App\Models\Unit|null $unit
  * @property-read \App\Models\Vendor|null $vendor
  * @method static \Illuminate\Database\Eloquent\Builder|Sku newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Sku newQuery()
@@ -201,7 +198,6 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Sku whereQuantityInStock($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Sku whereSkucode($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Sku whereStockId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Sku whereUnitId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Sku whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Sku whereVendorId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Sku withTrashed()
@@ -234,32 +230,6 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Stock withoutTrashed()
  */
 	class Stock extends \Eloquent {}
-}
-
-namespace App\Models{
-/**
- * App\Models\Unit
- *
- * @property int $id
- * @property string $name
- * @property \Illuminate\Support\Carbon|null $created_at
- * @property \Illuminate\Support\Carbon|null $updated_at
- * @property \Illuminate\Support\Carbon|null $deleted_at
- * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Sku> $skus
- * @property-read int|null $skus_count
- * @method static \Illuminate\Database\Eloquent\Builder|Unit newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Unit newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Unit onlyTrashed()
- * @method static \Illuminate\Database\Eloquent\Builder|Unit query()
- * @method static \Illuminate\Database\Eloquent\Builder|Unit whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Unit whereDeletedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Unit whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Unit whereName($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Unit whereUpdatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Unit withTrashed()
- * @method static \Illuminate\Database\Eloquent\Builder|Unit withoutTrashed()
- */
-	class Unit extends \Eloquent {}
 }
 
 namespace App\Models{
@@ -315,6 +285,7 @@ namespace App\Models{
  * @property \Illuminate\Support\Carbon|null $deleted_at
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Sku> $skus
  * @property-read int|null $skus_count
+ * @method static \Database\Factories\VendorFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|Vendor newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Vendor newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Vendor onlyTrashed()

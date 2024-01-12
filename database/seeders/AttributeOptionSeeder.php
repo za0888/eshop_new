@@ -26,6 +26,9 @@ class AttributeOptionSeeder extends Seeder
             'white',
         ];
         array_walk($attributeOptions,
-            fn($value,$key)=>AttributeOption::create(['name'=>$value]));
+            fn($value,$key)=>AttributeOption::create([
+                'name'=>$value,
+                'comment'=>fake()->sentence(9),
+                ]));
     }
 }

@@ -27,8 +27,8 @@ return new class extends Migration {
                 ->cascadeOnDelete()
                 ->cascadeOnUpdate();
 
-            $table->foreignIdFor(Unit::class)
-                ->nullable();
+//            $table->foreignIdFor(Unit::class)
+//                ->nullable();
 
             $table->softDeletes();
 

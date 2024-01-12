@@ -108,8 +108,8 @@ it('check created Stock model existence & softDeleting', function () {
     assertSoftDeleted($stock);
 
 });
-// sku
 
+// sku
 it('check created Sku model existence & softDeleting', function () {
 
     $sku = Sku::create([
@@ -164,7 +164,3 @@ it('check created AttributeOption model existence & softDeleting', function () {
     assertSoftDeleted($attributeOption);
 
 });
-
-//order_users
-
-//order_skus

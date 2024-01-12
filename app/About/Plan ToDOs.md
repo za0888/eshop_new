@@ -3,7 +3,7 @@
 - **_Stock_**
 - **_Category_** seeder
 - **_Product_** seeder
-- _**Order**_ seeder
+- **Order**_ seeder
 - **_sku_**, **_attribute_** seeders
 
 
@@ -23,6 +23,6 @@
 We are going to use **_Spatie permissions_**
 
 ### Tests
-
+models exist & softdeleting
 ### Notifications
 

@@ -13,7 +13,7 @@ class Attribute extends Model
     use SoftDeletes;
 
     protected $fillable=[
-        'name'
+        'name',
     ];
 
     public function AttributeOptions(): HasMany

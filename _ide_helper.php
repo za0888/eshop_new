@@ -4,7 +4,7 @@
 
 /**
  * A helper file for Laravel, to provide autocomplete information to your IDE
- * Generated for Laravel 10.38.1.
+ * Generated for Laravel 10.40.0.
  *
  * This file should not be included in your code, only analyzed by your IDE!
  *
@@ -5079,6 +5079,20 @@
                         return $instance->connection($name);
         }
                     /**
+         * Get a database connection instance from the given configuration.
+         *
+         * @param string $name
+         * @param array $config
+         * @param bool $force
+         * @return \Illuminate\Database\MySqlConnection 
+         * @static 
+         */ 
+        public static function connectUsing($name, $config, $force = false)
+        {
+                        /** @var \Illuminate\Database\DatabaseManager $instance */
+                        return $instance->connectUsing($name, $config, $force);
+        }
+                    /**
          * Register a custom Doctrine type.
          *
          * @param string $class
@@ -7479,30 +7493,30 @@
                         return $instance->after($callback);
         }
                     /**
-         * Determine if the given ability should be granted for the current user.
+         * Determine if all of the given abilities should be granted for the current user.
          *
-         * @param string $ability
+         * @param \Illuminate\Auth\Access\iterable|string $abilities
          * @param array|mixed $arguments
          * @return bool 
          * @static 
          */ 
-        public static function allows($ability, $arguments = [])
+        public static function allows($abilities, $arguments = [])
         {
                         /** @var \Illuminate\Auth\Access\Gate $instance */
-                        return $instance->allows($ability, $arguments);
+                        return $instance->allows($abilities, $arguments);
         }
                     /**
-         * Determine if the given ability should be denied for the current user.
+         * Determine if any of the given abilities should be denied for the current user.
          *
-         * @param string $ability
+         * @param \Illuminate\Auth\Access\iterable|string $abilities
          * @param array|mixed $arguments
          * @return bool 
          * @static 
          */ 
-        public static function denies($ability, $arguments = [])
+        public static function denies($abilities, $arguments = [])
         {
                         /** @var \Illuminate\Auth\Access\Gate $instance */
-                        return $instance->denies($ability, $arguments);
+                        return $instance->denies($abilities, $arguments);
         }
                     /**
          * Determine if all of the given abilities should be granted for the current user.
@@ -10326,6 +10340,18 @@
                         $instance->assertNotPushed($job, $callback);
         }
                     /**
+         * Assert the total count of jobs that were pushed.
+         *
+         * @param int $expectedCount
+         * @return void 
+         * @static 
+         */ 
+        public static function assertCount($expectedCount)
+        {
+                        /** @var \Illuminate\Support\Testing\Fakes\QueueFake $instance */
+                        $instance->assertCount($expectedCount);
+        }
+                    /**
          * Assert that no jobs were pushed.
          *
          * @return void 
@@ -10528,6 +10554,18 @@
         {
                         /** @var \Illuminate\Support\Testing\Fakes\QueueFake $instance */
                         return $instance->setConnectionName($name);
+        }
+                    /**
+         * Get the maximum number of attempts for an object-based queue handler.
+         *
+         * @param mixed $job
+         * @return mixed 
+         * @static 
+         */ 
+        public static function getJobTries($job)
+        {            //Method inherited from \Illuminate\Queue\Queue         
+                        /** @var \Illuminate\Queue\SyncQueue $instance */
+                        return $instance->getJobTries($job);
         }
                     /**
          * Get the backoff for an object-based queue handler.
@@ -14984,6 +15022,52 @@
                         /** @var \Illuminate\Database\Schema\MySqlBuilder $instance */
                         $instance->blueprintResolver($resolver);
         }
+                    /**
+         * Register a custom macro.
+         *
+         * @param string $name
+         * @param object|callable $macro
+         * @return void 
+         * @static 
+         */ 
+        public static function macro($name, $macro)
+        {            //Method inherited from \Illuminate\Database\Schema\Builder         
+                        \Illuminate\Database\Schema\MySqlBuilder::macro($name, $macro);
+        }
+                    /**
+         * Mix another object into the class.
+         *
+         * @param object $mixin
+         * @param bool $replace
+         * @return void 
+         * @throws \ReflectionException
+         * @static 
+         */ 
+        public static function mixin($mixin, $replace = true)
+        {            //Method inherited from \Illuminate\Database\Schema\Builder         
+                        \Illuminate\Database\Schema\MySqlBuilder::mixin($mixin, $replace);
+        }
+                    /**
+         * Checks if macro is registered.
+         *
+         * @param string $name
+         * @return bool 
+         * @static 
+         */ 
+        public static function hasMacro($name)
+        {            //Method inherited from \Illuminate\Database\Schema\Builder         
+                        return \Illuminate\Database\Schema\MySqlBuilder::hasMacro($name);
+        }
+                    /**
+         * Flush the existing macros.
+         *
+         * @return void 
+         * @static 
+         */ 
+        public static function flushMacros()
+        {            //Method inherited from \Illuminate\Database\Schema\Builder         
+                        \Illuminate\Database\Schema\MySqlBuilder::flushMacros();
+        }
          
     }
             /**
@@ -15196,6 +15280,18 @@
         {
                         /** @var \Illuminate\Session\Store $instance */
                         return $instance->only($keys);
+        }
+                    /**
+         * Get all the session data except for a specified array of items.
+         *
+         * @param array $keys
+         * @return array 
+         * @static 
+         */ 
+        public static function except($keys)
+        {
+                        /** @var \Illuminate\Session\Store $instance */
+                        return $instance->except($keys);
         }
                     /**
          * Checks if a key exists.
@@ -18328,6 +18424,18 @@
         {
                         /** @var \Illuminate\Foundation\Vite $instance */
                         return $instance->useManifestFilename($filename);
+        }
+                    /**
+         * Resolve asset paths using the provided resolver.
+         *
+         * @param callable|null $urlResolver
+         * @return \Illuminate\Foundation\Vite 
+         * @static 
+         */ 
+        public static function createAssetPathsUsing($resolver)
+        {
+                        /** @var \Illuminate\Foundation\Vite $instance */
+                        return $instance->createAssetPathsUsing($resolver);
         }
                     /**
          * Get the Vite "hot" file path.
@@ -22529,7 +22637,7 @@ namespace  {
              * Add a "where date" statement to the query.
              *
              * @param \Illuminate\Contracts\Database\Query\Expression|string $column
-             * @param string $operator
+             * @param \DateTimeInterface|string|null $operator
              * @param \DateTimeInterface|string|null $value
              * @param string $boolean
              * @return \Illuminate\Database\Query\Builder 
@@ -22545,7 +22653,7 @@ namespace  {
              * Add an "or where date" statement to the query.
              *
              * @param \Illuminate\Contracts\Database\Query\Expression|string $column
-             * @param string $operator
+             * @param \DateTimeInterface|string|null $operator
              * @param \DateTimeInterface|string|null $value
              * @return \Illuminate\Database\Query\Builder 
              * @static 
@@ -22560,7 +22668,7 @@ namespace  {
              * Add a "where time" statement to the query.
              *
              * @param \Illuminate\Contracts\Database\Query\Expression|string $column
-             * @param string $operator
+             * @param \DateTimeInterface|string|null $operator
              * @param \DateTimeInterface|string|null $value
              * @param string $boolean
              * @return \Illuminate\Database\Query\Builder 
@@ -22576,7 +22684,7 @@ namespace  {
              * Add an "or where time" statement to the query.
              *
              * @param \Illuminate\Contracts\Database\Query\Expression|string $column
-             * @param string $operator
+             * @param \DateTimeInterface|string|null $operator
              * @param \DateTimeInterface|string|null $value
              * @return \Illuminate\Database\Query\Builder 
              * @static 
@@ -22591,7 +22699,7 @@ namespace  {
              * Add a "where day" statement to the query.
              *
              * @param \Illuminate\Contracts\Database\Query\Expression|string $column
-             * @param string $operator
+             * @param \DateTimeInterface|string|int|null $operator
              * @param \DateTimeInterface|string|int|null $value
              * @param string $boolean
              * @return \Illuminate\Database\Query\Builder 
@@ -22607,7 +22715,7 @@ namespace  {
              * Add an "or where day" statement to the query.
              *
              * @param \Illuminate\Contracts\Database\Query\Expression|string $column
-             * @param string $operator
+             * @param \DateTimeInterface|string|int|null $operator
              * @param \DateTimeInterface|string|int|null $value
              * @return \Illuminate\Database\Query\Builder 
              * @static 
@@ -22622,7 +22730,7 @@ namespace  {
              * Add a "where month" statement to the query.
              *
              * @param \Illuminate\Contracts\Database\Query\Expression|string $column
-             * @param string $operator
+             * @param \DateTimeInterface|string|int|null $operator
              * @param \DateTimeInterface|string|int|null $value
              * @param string $boolean
              * @return \Illuminate\Database\Query\Builder 
@@ -22638,7 +22746,7 @@ namespace  {
              * Add an "or where month" statement to the query.
              *
              * @param \Illuminate\Contracts\Database\Query\Expression|string $column
-             * @param string $operator
+             * @param \DateTimeInterface|string|int|null $operator
              * @param \DateTimeInterface|string|int|null $value
              * @return \Illuminate\Database\Query\Builder 
              * @static 
@@ -22653,7 +22761,7 @@ namespace  {
              * Add a "where year" statement to the query.
              *
              * @param \Illuminate\Contracts\Database\Query\Expression|string $column
-             * @param string $operator
+             * @param \DateTimeInterface|string|int|null $operator
              * @param \DateTimeInterface|string|int|null $value
              * @param string $boolean
              * @return \Illuminate\Database\Query\Builder 
@@ -22669,7 +22777,7 @@ namespace  {
              * Add an "or where year" statement to the query.
              *
              * @param \Illuminate\Contracts\Database\Query\Expression|string $column
-             * @param string $operator
+             * @param \DateTimeInterface|string|int|null $operator
              * @param \DateTimeInterface|string|int|null $value
              * @return \Illuminate\Database\Query\Builder 
              * @static 

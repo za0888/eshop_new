@@ -18,7 +18,10 @@ class AttributeSeeder extends Seeder
             'width',
             'height',
             'thickness',
-            'square'
+            'volume',
+            'square',
+            'electicity',
+            'package'
         ];
     }
 }

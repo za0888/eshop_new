@@ -20,7 +20,10 @@ class UnitSeeder extends Seeder
             'ltr',
             'kg',
             'cbm',
-            'sqm'
+            'sqm',
+            'volt',
+            'amper',
+            'vatt'
         ];
 
         foreach ($units as $unit ) {

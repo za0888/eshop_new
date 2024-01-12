@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class AttributeOption extends Model
@@ -26,7 +27,7 @@ class AttributeOption extends Model
 
     public function attribute(): BelongsTo
     {
-        return $this->belongsTo(AttributeOption::class)
+        return $this->belongsTo(Attribute::class)
             ->withDefault();
     }
 
@@ -36,9 +37,5 @@ class AttributeOption extends Model
             ->withPivot('unit', 'value');
     }
 
-    public function unit(): BelongsTo
-    {
-        return $this->belongsTo(Unit::class)
-            ->withDefault();
-    }
+
 }
