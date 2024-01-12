@@ -20,4 +20,9 @@ class Attribute extends Model
     {
         return $this->hasMany(AttributeOption::class);
     }
+
+    public function units(): HasMany
+    {
+        return $this->hasMany(Unit::class);
+    }
 }

@@ -21,6 +21,8 @@ namespace App\Models{
  * @property \Illuminate\Support\Carbon|null $deleted_at
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\AttributeOption> $AttributeOptions
  * @property-read int|null $attribute_options_count
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Unit> $units
+ * @property-read int|null $units_count
  * @method static \Illuminate\Database\Eloquent\Builder|Attribute newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Attribute newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Attribute onlyTrashed()
@@ -230,6 +232,31 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Stock withoutTrashed()
  */
 	class Stock extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * App\Models\Unit
+ *
+ * @property int $id
+ * @property string $name
+ * @property int $attribute_option_id
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property string|null $deleted_at
+ * @property-read \App\Models\Attribute|null $attribue
+ * @method static \Database\Factories\UnitFactory factory($count = null, $state = [])
+ * @method static \Illuminate\Database\Eloquent\Builder|Unit newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Unit newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Unit query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Unit whereAttributeOptionId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Unit whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Unit whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Unit whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Unit whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Unit whereUpdatedAt($value)
+ */
+	class Unit extends \Eloquent {}
 }
 
 namespace App\Models{

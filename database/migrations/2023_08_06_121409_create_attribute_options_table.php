@@ -17,18 +17,15 @@ return new class extends Migration {
             $table->id();
 //red
             $table->string('name')
-                ->nullable()
                 ->unique();
 
-            $table->string('comment');
+            $table->string('comment')->nullable();
 
             $table->foreignIdFor(Attribute::class)
                 ->constrained()
                 ->cascadeOnDelete()
                 ->cascadeOnUpdate();
 
-//            $table->foreignIdFor(Unit::class)
-//                ->nullable();
 
             $table->softDeletes();
 
