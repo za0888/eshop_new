@@ -9,9 +9,12 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Unit extends Model
 {
     use HasFactory;
-    protected $fillable=['name'];
+    protected $fillable=[
+        'name',
+        'attribute_id'
+    ];
 
-    public function attribue(): BelongsTo
+    public function attribute(): BelongsTo
     {
         return $this->belongsTo(Attribute::class);
     }

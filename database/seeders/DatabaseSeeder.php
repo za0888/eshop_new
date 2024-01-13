@@ -23,9 +23,9 @@ class DatabaseSeeder extends Seeder
             CategorySeeder::class,
             ProductSeeder::class,
             VendorSeeder::class,
-            UnitSeeder::class,
+//            UnitSeeder::class,
             AttributeSeeder::class,
-            AttributeOptionSeeder::class,
+//            AttributeOptionSeeder::class,
 //            SkuSeeder::class,
         ]);
     }

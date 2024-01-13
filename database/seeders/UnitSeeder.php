@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Attribute;
 use App\Models\Unit;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -13,23 +14,31 @@ class UnitSeeder extends Seeder
      */
     public function run(): void
     {
-        $units=[
+        $unitsDimension=[
             'pcs',
             'cm',
             'm',
-            'ltr',
+            'gram',
             'kg',
+            'ton',
+            'lb.',//фунт
+            'ounce',//унция
+        ];
+
+        $unitsVolume=[
             'cbm',
             'sqm',
+            'ltr',
+        ];
+        $unitsElectric=[
             'volt',
             'amper',
             'vatt'
         ];
 
-        foreach ($units as $unit ) {
-            Unit::create([
-                'name' => $unit,
-            ]);
-        }
+      $attrDimension=Attribute::where('name','weight-dimensional')->first();
+      if ($attrDimension){
+
+      }
     }
 }

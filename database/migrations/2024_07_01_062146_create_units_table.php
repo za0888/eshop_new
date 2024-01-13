@@ -13,7 +13,17 @@ return new class extends Migration
     {
         Schema::create('units', function (Blueprint $table) {
             $table->id();
+            $table->string('name')
+                ->unique();
+
+            $table->foreignIdFor(\App\Models\Attribute::class)
+            ->constrained()
+            ->cascadeOnDelete()
+            ->cascadeOnUpdate();
+
             $table->timestamps();
+            $table->softDeletes();
+
         });
     }
 
