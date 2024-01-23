@@ -17,7 +17,7 @@ return new class extends Migration {
         Schema::create('order_sku', function (Blueprint $table) {
             $table->primary(['sku_id', 'order_id']);
 //
-            $table->integer('quantity_in_order');
+            $table->integer('number_in_order');
 
             $table->foreignIdFor(Sku::class);
             $table->foreignIdFor(Order::class);

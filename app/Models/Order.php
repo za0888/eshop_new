@@ -13,7 +13,10 @@ class Order extends Model
     use HasFactory;
     use SoftDeletes;
 
-    protected $fillable=['number','status'];
+    protected $fillable=[
+        'order_number',
+        'status',
+    ];
 
     protected $casts=['status'=>OrderStatus::class];
 

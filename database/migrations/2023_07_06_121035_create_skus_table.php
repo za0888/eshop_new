@@ -18,11 +18,18 @@ return new class extends Migration {
     {
         Schema::create('skus', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+//            name see in the product
+//            $table->string('name');
+
 //            $table->string('skuStatus')
 //                ->default(SkuStatus::StockProcessing);
-            $table->string('skucode');
-            $table->string('barcode');
+            $table->decimal('number_in_stock',8,3);
+//'skucode' consists of : vendor name 4, name(product) 6, category_id 3
+            $table->string('skucode',13);
+
+            $table->string('barcode')
+                ->unique();
+
             $table->decimal('cost', 8, 3)
                 ->comment('the cost is a price from supplier ');
 
@@ -41,9 +48,6 @@ return new class extends Migration {
 
             $table->foreignIdFor(Stock::class)
                 ->constrained();
-
-//            $table->foreignIdFor(Unit::class)
-//                ->nullable();
 
             $table->foreignIdFor(Vendor::class);
 

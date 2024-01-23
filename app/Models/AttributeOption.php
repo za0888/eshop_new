@@ -18,7 +18,6 @@ class AttributeOption extends Model
         'name',
         'comment',
         'attribute_id',
-        'unit_id'
     ];
 
     protected $casts = [

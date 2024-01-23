@@ -13,7 +13,7 @@ class AttributeSeeder extends Seeder
 //    Attribute AttributeOption Unit models to be seeded
     public function run(): void
     {
-        $attributes=[
+        $attributes = [
             'color',
             'weight-dimensional',
             'electric',
@@ -21,8 +21,8 @@ class AttributeSeeder extends Seeder
         ];
 
 //        package
-        $attribute=Attribute::create(['name'=>'package']);
-        $attrOptionsPackage=[
+        $attribute = Attribute::create(['name' => 'package']);
+        $attrOptionsPackage = [
             'box',
             'barrel',
             'carton',
@@ -31,16 +31,27 @@ class AttributeSeeder extends Seeder
 
         array_walk(
             $attrOptionsPackage,
-            fn($item,$key)=>AttributeOption::create([
-                'name'=>$item,
-                'attribute_id'=>$attribute->id,
-                'comment'=>fake()->sentence
+            fn($item, $key) => AttributeOption::create([
+                'name' => $item,
+                'attribute_id' => $attribute->id,
+                'comment' => fake()->sentence
             ])
         );
+        $attrPckageUnit = [
+            'number inside',
+            'littre',
+        ];
+
+        array_walk($attrPckageUnit, fn($item, $key) => Unit::create(
+            [
+                'name' => $item,
+                'attribute_id' => $attribute->id
+            ]));
+
 
 // weight-dimensional
-        $attribute=Attribute::create(['name'=>'weight-dimensional']);
-        $weightDimOptions=[
+        $attribute = Attribute::create(['name' => 'weight-dimensional']);
+        $weightDimOptions = [
             'length',
             'heght',
             'volume',
@@ -49,14 +60,14 @@ class AttributeSeeder extends Seeder
         ];
         array_walk(
             $weightDimOptions,
-            fn($item,$key)=>AttributeOption::create([
-                'name'=>$item,
-                'attribute_id'=>$attribute->id,
-                'comment'=>fake()->sentence
+            fn($item, $key) => AttributeOption::create([
+                'name' => $item,
+                'attribute_id' => $attribute->id,
+                'comment' => fake()->sentence
             ])
         );
 
-        $unitsDimension=[
+        $unitsDimension = [
             'pcs',
             'cm',
             'm',
@@ -71,33 +82,33 @@ class AttributeSeeder extends Seeder
         ];
         array_walk(
             $unitsDimension,
-            fn($item,$key)=>Unit::create([
-                'name'=>$item,
-                'attribute_id'=>$attribute->id
+            fn($item, $key) => Unit::create([
+                'name' => $item,
+                'attribute_id' => $attribute->id
             ])
         );
 
 //        electric
 
-        $attribute=Attribute::create([
-            'name'=>"electric",
-            ]);
+        $attribute = Attribute::create([
+            'name' => "electric",
+        ]);
 
-        $attributeOptElectric=[
+        $attributeOptElectric = [
             'voltage',
             'amperage',
             'power'
         ];
         array_walk(
             $attributeOptElectric,
-            fn($item,$key)=>AttributeOption::create([
-                'name'=>$item,
-                'attribute_id'=>$attribute->id,
-                'comment'=>fake()->sentence,
+            fn($item, $key) => AttributeOption::create([
+                'name' => $item,
+                'attribute_id' => $attribute->id,
+                'comment' => fake()->sentence,
             ])
         );
 
-        $unitsElectric=[
+        $unitsElectric = [
             'millivolt',
             'volt',
             'kilovolt',
@@ -110,28 +121,28 @@ class AttributeSeeder extends Seeder
 
         array_walk(
             $unitsElectric,
-            fn($item,$key)=>Unit::create([
-                'name'=>$item,
-                'attribute_id'=>$attribute->id
+            fn($item, $key) => Unit::create([
+                'name' => $item,
+                'attribute_id' => $attribute->id
             ])
         );
 
-/*//        'volume'
-        $attribute=Attribute::create([
-            'name'=>'volume'
-        ]);
+        /*//        'volume'
+                $attribute=Attribute::create([
+                    'name'=>'volume'
+                ]);
 
-        $unitsVolume=[
-            'cbm',
-            'sqm',
-            'ltr',
-        ];
-        array_walk(
-            $unitsVolume,
-            fn($item,$key)=>Unit::create([
-                'name'=>$item,
-                'attribute_id'=>$attribute->id
-            ])
-        );*/
+                $unitsVolume=[
+                    'cbm',
+                    'sqm',
+                    'ltr',
+                ];
+                array_walk(
+                    $unitsVolume,
+                    fn($item,$key)=>Unit::create([
+                        'name'=>$item,
+                        'attribute_id'=>$attribute->id
+                    ])
+                );*/
     }
 }

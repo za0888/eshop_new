@@ -15,7 +15,8 @@ class Sku extends Model
     use SoftDeletes;
 
     protected $fillable = [
-        'name',
+//        'name',
+        'number',
         'skucode',
         'barcode',
         'cost',
@@ -39,7 +40,7 @@ class Sku extends Model
             ->withPivot('value', 'unit');
     }
 
-    public function order():BelongsToMany
+    public function order(): BelongsToMany
     {
         return $this->belongsToMany(Order::class)
             ->withPivot('number_of_sku');
@@ -52,11 +53,11 @@ class Sku extends Model
     }
 
 //units:box,barrel,cartoon,
-  /*  public function unit(): BelongsTo
-    {
-        return $this->belongsTo(Unit::class)
-            ->withDefault();
-    }*/
+    /*  public function unit(): BelongsTo
+      {
+          return $this->belongsTo(Unit::class)
+              ->withDefault();
+      }*/
 
     public function vendor(): BelongsTo
     {
