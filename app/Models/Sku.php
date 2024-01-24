@@ -21,7 +21,7 @@ class Sku extends Model
         'barcode',
         'cost',
         'price',
-        'quantity_in_stock',
+        'number_in_stock',
         'location_in_stock',
         'product_id',
         'stock_id',
