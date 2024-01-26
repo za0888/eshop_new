@@ -17,9 +17,10 @@ class ProductFactory extends Factory
      * @return array<string, mixed>
      */
     public function definition(): array
+// full name, presented in the output will consist of vendor name + product name
     {
         return [
-            'name'=>fake()->words(3,true),
+            'name'=>strtoupper(fake()->randomLetter).'-'.fake()->randomNumber(rand(2,4)),
             'description'=>fake()->sentence(7),
             'slug'=>"some_slug"
         ];

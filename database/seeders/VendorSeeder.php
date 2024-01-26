@@ -13,8 +13,22 @@ class VendorSeeder extends Seeder
      */
     public function run(): void
     {
-        Vendor::factory()
-            ->count(10)
-            ->create();
+        $vendors=[
+            'BOSH',
+            'BLACK & DECKER',
+            'MAKITA',
+            'METABO',
+            'INTERTOOL'
+
+        ];
+       array_walk(
+           $vendors,
+           fn($value,$key)=>Vendor::create([
+               'name'=>$value,
+               'account'=>fake()->creditCardNumber,
+               'email'=>fake()->email,
+               'address'=>fake()->address,
+               ])
+       );
     }
 }

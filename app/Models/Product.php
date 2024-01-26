@@ -18,6 +18,7 @@ class Product extends Model
         'slug',
         'description',
         'category_id',
+        'vendor_id',
     ];
 
     public function skus():HasMany
@@ -30,4 +31,10 @@ class Product extends Model
         return $this->belongsTo(Category::class)->withDefault();
     }
 
+
+    public function vendor(): BelongsTo
+    {
+        return $this->belongsTo(Vendor::class)
+            ->withDefault();
+    }
 }

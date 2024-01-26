@@ -20,9 +20,10 @@ class Vendor extends Model
         'country'
     ];
 
-    public function skus():HasMany
+    public function products():HasMany
     {
-        return $this->hasMany(Sku::class);
+        return $this->hasMany(Product::class);
     }
+
 
 }

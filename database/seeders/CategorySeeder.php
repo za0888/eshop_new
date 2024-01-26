@@ -13,14 +13,17 @@ class CategorySeeder extends Seeder
      */
     public function run(): void
     {
-        $categories=[
-          'smartphone',
-          'fridge',
-            'tool',
+        $categories = [
+            'drill',
+            'hammer drill',
+            'hammer',
+            'electric jigsaw',
+            'chainsaw',
+            'screwdriver'
         ];
 
         array_walk($categories,
-            fn($value,$key)=>Category::create(['name'=>$value]));
+            fn($value, $key) => Category::create(['name' => $value]));
 
     }
 }

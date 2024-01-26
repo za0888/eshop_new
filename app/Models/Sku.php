@@ -40,7 +40,7 @@ class Sku extends Model
             ->withPivot('value', 'unit');
     }
 
-    public function order(): BelongsToMany
+    public function orders(): BelongsToMany
     {
         return $this->belongsToMany(Order::class)
             ->withPivot('number_of_sku');
@@ -52,16 +52,6 @@ class Sku extends Model
             ->withDefault();
     }
 
-//units:box,barrel,cartoon,
-    /*  public function unit(): BelongsTo
-      {
-          return $this->belongsTo(Unit::class)
-              ->withDefault();
-      }*/
 
-    public function vendor(): BelongsTo
-    {
-        return $this->belongsTo(Vendor::class)
-            ->withDefault();
-    }
+
 }
