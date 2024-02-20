@@ -25,9 +25,9 @@ class VendorSeeder extends Seeder
            $vendors,
            fn($value,$key)=>Vendor::create([
                'name'=>$value,
-               'account'=>fake()->creditCardNumber,
-               'email'=>fake()->email,
-               'address'=>fake()->address,
+               'account'=>fake()->unique()->creditCardNumber,
+               'email'=>fake()->unique()->email,
+               'address'=>fake()->unique()->address,
                ])
        );
     }

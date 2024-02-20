@@ -14,19 +14,36 @@ class AttributeSeeder extends Seeder
     public function run(): void
     {
         $attributes = [
+            'size',
             'color',
             'weight-dimensional',
             'electric',
             'package'
         ];
-
+//               size
+        $attribute = Attribute::create(['name' => 'size']);
+        $attrOptionsSize = [
+            'NO',
+            'SM',
+            'L',
+            'XL',
+            'XXL'
+        ];
+        array_walk(
+            $attrOptionsSize,
+            fn($item, $key) => AttributeOption::create([
+                'name' => $item,
+                'attribute_id' => $attribute->id,
+                'comment' => fake()->sentence
+            ])
+        );
 //        package
         $attribute = Attribute::create(['name' => 'package']);
         $attrOptionsPackage = [
             'box',
             'barrel',
             'carton',
-            'pock'
+            'pack'
         ];
 
         array_walk(

@@ -22,7 +22,7 @@ return new class extends Migration {
             $table->decimal('number_in_stock', 8, 3);
 //'skucode' consists of : vendor name 4, name(product) 6, category_id 3
 
-            $table->string('skucode', 13);
+            $table->string('skucode');
 
             $table->string('barcode', 32)
                 ->unique();
